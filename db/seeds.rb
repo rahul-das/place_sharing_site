@@ -11,7 +11,5 @@ serampore = Place.find_or_create_by!(name: "Serampore", latitude: 22.7505, longi
 uluberia = Place.find_or_create_by!(name: "Uluberia", latitude: 22.4764, longitude: 88.0898, user_id: user_2.id)
 
 # user_1 shared location salt_lake with user_2; user_2 shared location newtown with user_1
-Share.create!([
-  { user_id: user_1.id, place_id: newtown.id },
-  { user_id: user_2.id, place_id: salt_lake.id }
-])
+Share.find_or_create_by!(user_id: user_1.id, place_id: newtown.id)
+Share.find_or_create_by!(user_id: user_2.id, place_id: salt_lake.id)
