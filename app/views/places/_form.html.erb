@@ -14,7 +14,13 @@
       label: false,
       placeholder: 'Longitude' %>
     <%= f.input :is_public %>
-    <%= f.association :shared_users, collection: User.all_except(current_user), label_method: :email, value_method: :id, as: :check_boxes %>
+    <%= f.association :shared_users, 
+      collection: User.all_except(current_user), 
+      label_method: :name, 
+      value_method: :id, 
+      as: :check_boxes, 
+      include_blank: false, 
+      include_hidden: false %>
   </div>
 
   <div class="form-actions">

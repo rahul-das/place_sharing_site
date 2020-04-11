@@ -1,13 +1,15 @@
-<h1>Users</h1>
+<div class="card-header bg-info">
+  <h3 class="text-white text-center">Users</h3>
+</div>
 
 <table class="table table-striped">
   <thead>
     <tr>
-      <% attributes = [:id, :email, :created_at, :updated_at]
-      attribute_syms = attributes.map(&:to_sym) %>
-      <% attributes.each do |attribute| %>
-        <th><%= attribute %></th>
-      <% end %>
+      <th>#</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Username</th>
+      <th>Registered on</th>
       <th></th>
     </tr>
   </thead>
@@ -15,19 +17,13 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <% attribute_syms.each do |attribute_sym| %>
-          <td><%= user[attribute_sym] %></td>
-        <% end %>
-
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td class="d-inline-block text-truncate" style="max-width: 250px;"><%= user.slug %></td>
+        <td><%= user.created_at.strftime("%F") %></td>
         <td><%= link_to 'Shared Places', user %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<script type="text/javascript">
-  $(".nav .nav-link").on("click", function(){
-    $(".nav").find(".active").removeClass("active");
-    $(this).addClass("active");
-  });
-</script>

@@ -1,9 +1,9 @@
 <div class="card-header bg-info text-white d-flex">
-    <h3 class="text-white">Places</h3>
-    <%= link_to new_place_path, class: "text-white align-middle ml-auto btn btn-danger" do %>
+  <h3 class="text-white">Places</h3>
+  <%= link_to new_place_path, class: "text-white align-middle ml-auto btn btn-danger" do %>
     <i class="fas fa-plus"></i> New Place
-    <% end %>
-</div>  
+  <% end %>
+</div>
 <div class="container">
   <div class="row">
     
@@ -11,14 +11,15 @@
       <div id="map"></div>
     </div>
     <div class="col-6">
-      <table class="table table-striped">
+      <table class="table table-striped text-center">
         <thead>
           <tr>
             <th>Name</th>
             <th>Latitude</th>
             <th>Longitude</th>
             <th>Public?</th>
-            <th colspan="2"></th>
+            <th>Shared By</th>
+            <th></th>
           </tr>
         </thead>
 
@@ -28,14 +29,23 @@
               <td><%= place.name %></td>
               <td><%= place.latitude %></td>
               <td><%= place.longitude %></td>
-              <td><%= place.is_public %></td>
-              <td><%= link_to 'Show', place %></td>
+              <td>
+                <% if place.is_public.present? %>
+                  <i class="fa fa-check" aria-hidden="true"></i>
+                <% else %>
+                  <i class="fa fa-times" aria-hidden="true"></i>
+                <% end %>
+              </td>
               <% if place.user == current_user %>
-              <td><%= link_to 'Edit', edit_place_path(place) %> | <%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
+                <td class="text-muted"><i class="fa fa-user" aria-hidden="true"></i> <%= place.user.name %></td>
               <% else %>
-              <td><%= "Shared By: #{place.user.email}" %></td>
+                <td>
+                  <%= link_to place.user do %>
+                    <i class="fa fa-user-secret" aria-hidden="true"></i> <%= place.user.name %>
+                  <% end %>
+                </td>
               <% end %>
+              <td><%= link_to 'Show', place %></td>
             </tr>
           <% end %>
         </tbody>

@@ -36,6 +36,7 @@ class PlacesController < ApplicationController
         format.html { redirect_to @place, notice: 'Place was successfully created.' }
         format.json { render :show, status: :created, location: @place }
       else
+        p @place.errors
         format.html { render :new }
         format.json { render json: @place.errors, status: :unprocessable_entity }
       end
@@ -82,6 +83,6 @@ class PlacesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def place_params
-      params.require(:place).permit(:name, :latitude, :longitude, :is_public, shared_user_ids: [])
+      params.require(:place).permit(:name, :latitude, :longitude, :is_public, shared_user_ids: []).merge(user_id: current_user.id)
     end
 end

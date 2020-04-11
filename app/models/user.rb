@@ -9,4 +9,7 @@ class User < ApplicationRecord
   has_many :created_places, class_name: "Place"
   
   scope :all_except, ->(user) { where.not(id: user) }
+
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 end
