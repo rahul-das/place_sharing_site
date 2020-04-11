@@ -7,6 +7,9 @@ class PlacesController < ApplicationController
     @places = current_user.created_places
     @places += Place.is_public.not_cteated_by(current_user)
     @places += Place.shared_with(current_user)
+    if @places.blank?
+      redirect_to new_place_url, notice: "You don't have any shared places yet. Would you like to create one?"
+    end
   end
 
   # GET /places/1
