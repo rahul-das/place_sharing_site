@@ -48,6 +48,6 @@ ActiveRecord::Schema.define(version: 2020_04_10_175127) do
   end
 
   add_foreign_key "places", "users"
-  add_foreign_key "shares", "places"
+  add_foreign_key "shares", "places", on_delete: :cascade
   add_foreign_key "shares", "users"
 end

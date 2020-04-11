@@ -43,14 +43,14 @@
     target: 'map',
     layers: [baseMapLayer],
     view: new ol.View({
-            center: ol.proj.fromLonLat([<%=@place.longitude%>, <%=@place.latitude%>]), 
-            zoom: 16 //Initial Zoom Level
+            center: ol.proj.fromLonLat([<%= @place.longitude %>, <%= @place.latitude %>]), 
+            zoom: 10 //Initial Zoom Level
           })
   });
   //Adding a marker on the map
   var marker = new ol.Feature({
     geometry: new ol.geom.Point(
-      ol.proj.fromLonLat([<%=@place.longitude%>, <%=@place.latitude%>])
+      ol.proj.fromLonLat([<%= @place.longitude %>, <%= @place.latitude %>])
     ),  // Cordinates of New York's Town Hall
   });
   marker.setStyle(new ol.style.Style({
