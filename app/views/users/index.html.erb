@@ -1,25 +1,33 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Users</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <% attributes = [:id, :email, :created_at, :updated_at]
+      attribute_syms = attributes.map(&:to_sym) %>
+      <% attributes.each do |attribute| %>
+        <th><%= attribute %></th>
+      <% end %>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% attribute_syms.each do |attribute_sym| %>
+          <td><%= user[attribute_sym] %></td>
+        <% end %>
+
+        <td><%= link_to 'Shared Places', user %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New User', new_user_path %>
+<script type="text/javascript">
+  $(".nav .nav-link").on("click", function(){
+    $(".nav").find(".active").removeClass("active");
+    $(this).addClass("active");
+  });
+</script>

@@ -1,0 +1,53 @@
+.loginscreen.middle-box {
+  width: 300px;
+}
+.middle-box {
+  max-width: 400px;
+  z-index: 100;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.full-width {
+  width: 100% !important;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #1ab394;
+  border-color: #1ab394;
+}
+.btn {
+  border-radius: 3px;
+  font-size: inherit;
+}
+.m-b {
+  margin-bottom: 15px;
+}
+.btn-white {
+    color: inherit;
+    background: white;
+    border: 1px solid #e7eaec;
+}
+.btn-group-sm > .btn, .btn-sm {
+    font-size: .8rem;
+}
+.btn {
+    border-radius: 3px;
+    font-size: inherit;
+}
+.btn-block {
+    display: block;
+    width: 100%;
+}
+.m-t {
+    margin-top: 15px;
+}
