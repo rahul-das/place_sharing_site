@@ -15,16 +15,18 @@
 RSpec.describe "/places", type: :request do
   # Place. As you add validations to Place, be sure to
   # adjust the attributes here as well.
+  let!(:user) {FactoryBot.create(:user)}
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {name: "Newtown", latitude: 22.5754, longitude: 88.4798, user_id: user.id}
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {name: "Newtown", latitude: "qwertyuiop", user_id: "qwerty"}
   }
 
   describe "GET /index" do
     it "renders a successful response" do
+      sign_in user
       Place.create! valid_attributes
       get places_url
       expect(response).to be_successful
@@ -33,6 +35,7 @@ RSpec.describe "/places", type: :request do
 
   describe "GET /show" do
     it "renders a successful response" do
+      sign_in user
       place = Place.create! valid_attributes
       get place_url(place)
       expect(response).to be_successful
@@ -41,6 +44,7 @@ RSpec.describe "/places", type: :request do
 
   describe "GET /new" do
     it "renders a successful response" do
+      sign_in user
       get new_place_url
       expect(response).to be_successful
     end
@@ -48,6 +52,7 @@ RSpec.describe "/places", type: :request do
 
   describe "GET /edit" do
     it "render a successful response" do
+      sign_in user
       place = Place.create! valid_attributes
       get edit_place_url(place)
       expect(response).to be_successful
@@ -57,12 +62,14 @@ RSpec.describe "/places", type: :request do
   describe "POST /create" do
     context "with valid parameters" do
       it "creates a new Place" do
+        sign_in user
         expect {
           post places_url, params: { place: valid_attributes }
         }.to change(Place, :count).by(1)
       end
 
       it "redirects to the created place" do
+        sign_in user
         post places_url, params: { place: valid_attributes }
         expect(response).to redirect_to(place_url(Place.last))
       end
@@ -70,12 +77,14 @@ RSpec.describe "/places", type: :request do
 
     context "with invalid parameters" do
       it "does not create a new Place" do
+        sign_in user
         expect {
           post places_url, params: { place: invalid_attributes }
         }.to change(Place, :count).by(0)
       end
 
       it "renders a successful response (i.e. to display the 'new' template)" do
+        sign_in user
         post places_url, params: { place: invalid_attributes }
         expect(response).to be_successful
       end
@@ -85,17 +94,19 @@ RSpec.describe "/places", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {name: "Newtown", latitude: 22.9876, longitude: 88.1234, user_id: user.id}
       }
 
       it "updates the requested place" do
+        sign_in user
         place = Place.create! valid_attributes
         patch place_url(place), params: { place: new_attributes }
         place.reload
-        skip("Add assertions for updated state")
+        expect(place.latitude).to eq(22.9876)
       end
 
       it "redirects to the place" do
+        sign_in user
         place = Place.create! valid_attributes
         patch place_url(place), params: { place: new_attributes }
         place.reload
@@ -105,15 +116,17 @@ RSpec.describe "/places", type: :request do
 
     context "with invalid parameters" do
       it "renders a successful response (i.e. to display the 'edit' template)" do
+        sign_in user
         place = Place.create! valid_attributes
         patch place_url(place), params: { place: invalid_attributes }
-        expect(response).to be_successful
+        expect(response).to be_redirect
       end
     end
   end
 
   describe "DELETE /destroy" do
     it "destroys the requested place" do
+      sign_in user
       place = Place.create! valid_attributes
       expect {
         delete place_url(place)
@@ -121,6 +134,7 @@ RSpec.describe "/places", type: :request do
     end
 
     it "redirects to the places list" do
+      sign_in user
       place = Place.create! valid_attributes
       delete place_url(place)
       expect(response).to redirect_to(places_url)
