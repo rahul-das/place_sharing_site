@@ -113,4 +113,4 @@ Now you can start the rails server:
 ```
 rails server
 ```
-![Share.Place login page](https://drive.google.com/file/d/1ZQJIw4aR_VtXe70j6SYBC4fmNMfxkihq)
+
