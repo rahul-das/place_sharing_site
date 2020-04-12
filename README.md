@@ -19,19 +19,8 @@ Technologies and dependencies used in the App:
   - faker
 
 * System Dependencies: Considered Mac OS X for installation of Ruby, PostegreSQL
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Heroku Demo link: https://safe-ravine-11318.herokuapp.com/
 
 ## Getting Started
 
@@ -121,3 +110,11 @@ rails server
 
 ![Share Place places](https://user-images.githubusercontent.com/7859906/79062253-1798bf80-7cb6-11ea-9ff9-348d29cbfd8c.png)
 
+- Now, you can create and share any location either as public, or with single/multiple selected users
+
+![Share Place new place](https://user-images.githubusercontent.com/7859906/79062384-993d1d00-7cb7-11ea-8072-531e10f6e83c.png)
+
+- Anyone can view your public shared places by going to your page <site>/<username> 
+  - e.g http://localhost:3000/users/janelle-santiago
+  
+![Share Place username](https://user-images.githubusercontent.com/7859906/79062548-f6859e00-7cb8-11ea-9a9f-413a31c1a1d7.png)
