@@ -113,4 +113,10 @@ Now you can start the rails server:
 ```
 rails server
 ```
+Now you can open the URL http://localhost:3000 into the address bar of your browser. And you'll see the login page as following.
+![Share Place login](https://user-images.githubusercontent.com/7859906/79062121-0602e800-7cb5-11ea-924a-4173da07c520.png)
+
+After you login using the already existing seed user (email: rahul.kr.das.27@gmail.com, password: poiuytrewq), you'll see the sahred places as following:
+
+![Share Place places](https://user-images.githubusercontent.com/7859906/79062253-1798bf80-7cb6-11ea-9ff9-348d29cbfd8c.png)
 
