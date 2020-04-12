@@ -25,6 +25,13 @@
         <%= @place.is_public %>
       </p>
       
+      <p>
+        <strong>Shared with:</strong>
+        <% @place.shared_users.each do |shared_user| %>
+          <li><%= shared_user.name %></li>
+        <% end %>
+      </p>
+
       <%= link_to 'Edit', edit_place_path(@place) %> |
       <%= link_to 'Back', places_path %>
     </div>
