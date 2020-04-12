@@ -84,39 +84,40 @@ brew services start postgresql
 By default the postgresql user is your current OS X username with no password. For example, my OS X user is named ```rahul``` so I can login to postgresql with that username.
 
 ## Installation
-First, you need to clone the repository. Open Terminal and run the following command:
+- First, you need to clone the repository. Open Terminal and run the following command:
 ```
 git clone https://github.com/rahul-das/place_sharing_site.git
 ```
-Now, Move into the application directory
+- Now, Move into the application directory
 ```
 cd place_sharing_site
 ```
-Modify the config/database.yml file to contain the valid username/password. By default, it can be the system username as username with no password for Mac OS X users.
+- Modify the config/database.yml file to contain the valid username/password. By default, it can be the system username as username with no password for Mac OS X users.
 ```
 # config/database.yml
 username: rahul # change this to your current OS X username
 password: 
 ```
-I've added some extra gems in Gemfile; So install the gems using bundle install:
+- I've added some gems in Gemfile; So install the gems using bundle install:
 ```
 bundle install
 ```
-Next step is Database Setup:
+- Next step is Database Setup:
 ```
 rails db:create
 rails db:migrate
 # some users, shared locations
 rails db:seed
 ```
-Now you can start the rails server:
+- Now you can start the rails server:
 ```
 rails server
 ```
-Now you can open the URL http://localhost:3000 into the address bar of your browser. And you'll see the login page as following.
-![Share Place login](https://user-images.githubusercontent.com/7859906/79062121-0602e800-7cb5-11ea-924a-4173da07c520.png)
+- Now you can open the URL http://localhost:3000 into the address bar of your browser. And you'll see the login page as following.
 
-After you login using the already existing seed user (email: rahul.kr.das.27@gmail.com, password: poiuytrewq), you'll see the sahred places as following:
+![Share Place login](https://user-images.githubusercontent.com/7859906/79062283-7e1ddd80-7cb6-11ea-9817-b7490995f961.png)
+
+- After you login using the already existing seed user (email: rahul.kr.das.27@gmail.com, password: poiuytrewq), you'll see the sahred places as following:
 
 ![Share Place places](https://user-images.githubusercontent.com/7859906/79062253-1798bf80-7cb6-11ea-9ff9-348d29cbfd8c.png)
 
