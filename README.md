@@ -9,7 +9,7 @@ Technologies and dependencies used in the App:
 * OpenLayers 5.3.0
 * PostgreSQL 12.2
 
-* Gems dependencies: 
+* Gems dependencies:
   - Devise
   - bootstrap
   - simple_form
