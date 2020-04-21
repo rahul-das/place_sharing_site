@@ -20,7 +20,7 @@ Technologies and dependencies used in the App:
 
 * System Dependencies: Considered Mac OS X for installation of Ruby, PostegreSQL
 
-* Heroku Demo link: https://safe-ravine-11318.herokuapp.com/
+* Heroku Demo link: https://safe-ravine-11318.herokuapp.com
 * Heroku Demo email: rahul.kr.das.27@gmail.com, password: poiuytrewq
 
 ## Getting Started
